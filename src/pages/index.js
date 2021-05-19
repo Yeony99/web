@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom'; //라우팅 의
 import Home from './home';
 import Favorites from './favorites';
 import MyNotes from './mynote';
+import NotePage from './note';
 
 import Layout from '../components/Layout'; //레이아웃 컴포넌트 임포트
 
@@ -13,8 +14,9 @@ const Pages = () => {
         <Router>
             <Layout>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/mynotes" component={MyNotes} />
-                <Route exact path="/favorites" component={Favorites} />
+                <Route path="/mynotes" component={MyNotes} />
+                <Route path="/favorites" component={Favorites} />
+                <Route path="/note/:id" component={NotePage}/>
             </Layout>
         </Router>
     )

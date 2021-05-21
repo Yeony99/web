@@ -5,7 +5,7 @@ import Home from './home';
 import Favorites from './favorites';
 import MyNotes from './mynote';
 import NotePage from './note';
-
+import SignUp from './signup';
 import Layout from '../components/Layout'; //레이아웃 컴포넌트 임포트
 
 //라우팅 정의
@@ -17,6 +17,7 @@ const Pages = () => {
                 <Route path="/mynotes" component={MyNotes} />
                 <Route path="/favorites" component={Favorites} />
                 <Route path="/note/:id" component={NotePage}/>
+                <Route path="/signup" component={SignUp}/>
             </Layout>
         </Router>
     )

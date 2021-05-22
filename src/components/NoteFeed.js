@@ -11,17 +11,17 @@ const NoteWrapper = styled.div`
     border-bottom: 1px solid #f5f4f0;
 `
 
-const noteFeed = ({notes}) => {
+const NoteFeed = ({notes}) => {
     return (
         <div>
             {notes.map(note => (
                 <NoteWrapper key={note.id}>
                     <Note note={note}/>
-                    <Link to={'note/${note.id}'}>Permalink</Link>
+                    <Link to={`note/${note.id}`}>Permalink</Link>
                 </NoteWrapper>
             ))}
         </div>
     );
 };
 
-export default noteFeed;
+export default NoteFeed;

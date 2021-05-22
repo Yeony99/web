@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Nav = styled.nav`
     padding: 1em;
-    backgound: #f5f440;
+    background: #f5f4f0;
 
     @media (max-width: 700px) {
         padding-top: 64px;
@@ -32,13 +32,13 @@ const NavList = styled.ul`
         font-weight: bold;
         font-size: 1.1em;
         color: #333;
-        a:visited {
-            color:#333;
-        }
+    }
+    a:visited {
+        color:#333;
+    }
 
-        a:hover, a:focus {
-            color: #0077cc;
-        }
+    a:hover, a:focus {
+        color: #0077cc;
     }
 `;
 

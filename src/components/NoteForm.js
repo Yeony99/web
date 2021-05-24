@@ -1,4 +1,3 @@
-import { gql, useMutation } from "@apollo/client";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Button from "./Button";
@@ -18,7 +17,7 @@ const TextArea = styled.textarea`
 
 const NoteForm = props => {
     //기본 양식 상태 설정
-    const [value, setValue] = useState({content: props.content|| ''});
+    const [value, setValue] = useState({ content: props.content || '' });
 
     //사용자가 양식 입력시 상태 업데이트
     const onChange = event => {
@@ -35,7 +34,7 @@ const NoteForm = props => {
                     e.preventDefault();
                     props.action({
                         variables: {
-                            ...values
+                            ...value
                         }
                     });
                 }}
@@ -43,10 +42,10 @@ const NoteForm = props => {
                 <TextArea
                     required
                     type="text"
-                    name = "content"
-                    placeholder="Note Content"
-                    value = {value.content}
-                    onChange = {onChange}
+                    name="content"
+                    placeholder="Note content"
+                    value={value.content}
+                    onChange={onChange}
                 />
                 <Button type="submit">Save</Button>
             </Form>

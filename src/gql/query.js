@@ -82,4 +82,23 @@ const GET_MY_FAVORITES = gql`
     }
 `;
 
-export {GET_NOTES, GET_NOTE, IS_LOGGED_IN, GET_MY_NOTES, GET_MY_FAVORITES};
+const GET_ME = gql`
+    query me {
+      me {
+        id
+        favorites {
+          id
+        }
+      }
+    }
+`;
+
+
+export {
+  GET_NOTES,
+  GET_NOTE, 
+  IS_LOGGED_IN, 
+  GET_MY_NOTES, 
+  GET_MY_FAVORITES,
+  GET_ME
+};

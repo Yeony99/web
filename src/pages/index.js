@@ -11,6 +11,7 @@ import SignUp from './signup';
 import SignIn from './signin';
 import Note from './note';
 import NewNote from './new';
+import EditNote from './edit';
 
 const IS_LOGGED_IN = gql`
     {
@@ -30,6 +31,7 @@ const Pages = props => {
                 <Route path="/signup" component={SignUp} />
                 <Route path="/signin" component={SignIn} />
                 <PrivateRoute path="/new" component={NewNote}/>
+                <PrivateRoute path="/edit/:id" component={EditNote} />
             </Layout>
         </Router>
     )

@@ -3,6 +3,9 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { format } from 'date-fns';
 import styled from 'styled-components';
+import { useQuery } from '@apollo/client';
+import NoteUser from './NoteUser';
+import { IS_LOGGED_IN } from '../gql/query';
 
 //노트 행 표시 길이를 800px 이내로 유지
 const StyledNote = styled.article`
@@ -28,6 +31,10 @@ const UserActions = styled.div`
 `;
 
 const Note = ({ note }) => {
+
+    const { loading, error, data } = useQuery(IS_LOGGED_IN);
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error!</p>;
     return (
         <StyledNote>
             <MetaData>
@@ -42,9 +49,15 @@ const Note = ({ note }) => {
                     <em>by</em> {note.author.username} <br />
                     {format(note.createdAt, 'YYYY MMM Do')}
                 </MetaInfo>
-                <UserActions>
-                    <em>Favorites:</em>{note.favoriteCount}
-                </UserActions>
+                {data.isLoggedIn ? (
+                    <UserActions>
+                        <NoteUser note={note} />
+                    </UserActions>
+                ) : (
+                    <UserActions>
+                        <em>Favorites:</em>{note.favoriteCount}
+                    </UserActions>
+                )}
             </MetaData>
             <ReactMarkdown source={note.content} />
         </StyledNote>
